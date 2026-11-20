@@ -2,7 +2,7 @@
 
 Segmentación de tarjetahabientes con clustering sobre el *Credit Card Dataset for Clustering*. Los
 notebooks comparan K-Means y un modelo de mezcla gaussiana (GMM), primero sobre las 17 variables
-originales y después sobre 8 componentes principales, y describen los grupos en unidades originales.
+originales y después sobre 6 componentes principales, y describen los grupos en unidades originales.
 
 ## Inicio rápido
 
@@ -13,9 +13,9 @@ Para correrlos sin instalar nada, abre cada notebook en Google Colab y ejecútal
 |---|---|---|---|
 | [01_formulacion_y_datos](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/01_formulacion_y_datos.ipynb) | Descarga el conjunto, describe las variables y revisa nulos, duplicados y rangos | Nada | menos de 1 min |
 | [02_estadistica_descriptiva](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/02_estadistica_descriptiva.ipynb) | Escalas, asimetría, masas puntuales, atípicos y correlaciones | Nada | menos de 1 min |
-| [03_preprocesamiento_y_particion](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/03_preprocesamiento_y_particion.ipynb) | Partición 80/20, imputación, log1p y escalado ajustados solo con entrenamiento | Nada | menos de 1 min |
-| [04_clustering_espacio_original](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/04_clustering_espacio_original.ipynb) | Etapa 1, ajuste y evaluación de K-Means y GMM sobre las 17 variables | 03 | 15 a 30 min |
-| [05_pca_y_espacio_reducido](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/05_pca_y_espacio_reducido.ipynb) | Etapa 2, PCA, reentrenamiento, tabla comparativa, sensibilidad y costo | 03 y 04 | 10 a 30 min |
+| [03_preprocesamiento_y_particion](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/03_preprocesamiento_y_particion.ipynb) | Partición 80/20, imputación y transformación por cuantiles ajustadas solo con entrenamiento | Nada | menos de 1 min |
+| [04_clustering_espacio_original](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/04_clustering_espacio_original.ipynb) | Etapa 1, ajuste y evaluación de K-Means y GMM sobre las 17 variables | 03 | 5 a 15 min |
+| [05_pca_y_espacio_reducido](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/05_pca_y_espacio_reducido.ipynb) | Etapa 2, PCA, reentrenamiento, tabla comparativa, sensibilidad y costo | 03 y 04 | 5 a 15 min |
 | [06_interpretacion_y_conclusiones](https://colab.research.google.com/github/alejandroramirezucb/credit_card/blob/main/notebooks/06_interpretacion_y_conclusiones.ipynb) | Perfiles de los grupos, peso en compras, deuda y efectivo, y variables que los definen | 03, 04 y 05 | menos de 1 min |
 
 Los notebooks 04 y 05 son lentos porque prueban 9 valores de K para K-Means y 24 combinaciones de
@@ -92,7 +92,7 @@ jupyter lab notebooks/
 ```
 
 También se pueden ejecutar los seis desde la terminal, sin abrir Jupyter. Conviene desactivar el límite
-de tiempo por celda con `timeout=-1`, porque la búsqueda de GMM del notebook 04 puede pasar de media hora
+de tiempo por celda con `timeout=-1`, porque la búsqueda de GMM del notebook 04 puede pasar de un cuarto de hora
 en una máquina lenta:
 
 ```bash
@@ -106,7 +106,7 @@ ejecución guarda las versiones usadas en `resultados.json`.
 
 - La semilla 42 fija la partición y todos los modelos, así que dos ejecuciones dan los mismos grupos y
   las mismas métricas. Solo cambian los tiempos, que dependen de la máquina.
-- El imputador, el escalador y el PCA se ajustan solo con el conjunto de entrenamiento y después se
+- El imputador, la transformación por cuantiles y el PCA se ajustan solo con el conjunto de entrenamiento y después se
   aplican a prueba.
 - Las cifras se redondean una sola vez, mitad hacia arriba, con la función `redondear` de la primera
   celda de código, para que coincidan con las del informe.
