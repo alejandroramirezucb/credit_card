@@ -1,6 +1,6 @@
 # Credit Card
 
-Segmentación de tarjetahabientes con clustering sobre el *Credit Card Dataset for Clustering*. Los
+Segmentación de clientes con clustering sobre el *Credit Card Dataset for Clustering*. Los
 notebooks comparan K-Means y un modelo de mezcla gaussiana (GMM), primero sobre las 17 variables
 originales y después sobre 6 componentes principales, y describen los grupos en unidades originales.
 
@@ -127,7 +127,7 @@ permiso en la ventana emergente.
 Bhasin, A. (2018). *Credit Card Dataset for Clustering* [Conjunto de datos]. Kaggle.
 https://www.kaggle.com/datasets/arjunbhasin2013/ccdata
 
-Son 8 950 tarjetahabientes y 17 variables numéricas que resumen seis meses de uso de la tarjeta (gasto,
+Son 8 950 clientes y 17 variables numéricas que resumen seis meses de uso de la tarjeta (gasto,
 frecuencia de compra, avances en efectivo, pagos y deuda). El conjunto tiene licencia CC0, de dominio
 público, y los notebooks lo descargan con `kagglehub` sin pedir credenciales.
 
